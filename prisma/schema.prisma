@@ -8,66 +8,94 @@ datasource db {
 }
 
 model Usuario {
-  id           Int            @id @default(autoincrement())
+  id           Int           @id @default(autoincrement())
   nome         String
-  email        String         @unique
-  cpf          String         @unique
-  telefone     String
-  senha        String
-  createdAt    DateTime       @default(now())
-  veiculos     Veiculo[]
+  email        String        @unique
+  cpf          String?       @unique
+  telefone     String?
+  senha        String?
+  googleId     String?       @unique
+  createdAt    DateTime      @default(now())
   agendamentos Agendamento[]
+  avaliacoes   Avaliacao[]
 }
 
-model Veiculo {
+model Dono {
   id        Int      @id @default(autoincrement())
-  placa     String
-  modelo    String
-  cor       String
-  usuarioId Int
-  usuario   Usuario  @relation(fields: [usuarioId], references: [id])
+  nome      String
+  login     String   @unique
+  cnpj      String?
+  senha     String?
+  googleId  String?  @unique
+  createdAt DateTime @default(now())
+  lojas     Loja[]
 }
 
-model Servico {
-  id                  Int                  @id @default(autoincrement())
-  nome                String
-  descricao           String
-  preco               Float
-  agendamentoServicos AgendamentoServico[]
+model Loja {
+  id           Int           @id @default(autoincrement())
+  nome         String
+  descricao    String
+  endereco     String
+  latitude     Float
+  longitude    Float
+  precoMedio   Float         @default(0)
+  categoria    String        @default("servicos gerais")
+  fotoUrl      String
+  capaUrl      String?
+  agendaDias   String        @default("1,2,3,4,5,6")
+  agendaHorarios String      @default("08:00,09:30,11:00,13:30,15:00,16:30")
+  bloqueado    Boolean       @default(false)
+  donoId       Int
+  dono         Dono          @relation(fields: [donoId], references: [id])
+  servicos     ServicoLoja[]
+  agendamentos Agendamento[]
+  avaliacoes   Avaliacao[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model ServicoLoja {
+  id           Int           @id @default(autoincrement())
+  nome         String
+  descricao    String
+  preco        Float
+  duracao      String
+  lojaId       Int
+  loja         Loja          @relation(fields: [lojaId], references: [id], onDelete: Cascade)
+  agendamentos Agendamento[]
+  createdAt    DateTime      @default(now())
 }
 
 model Agendamento {
-  id                  Int                  @id @default(autoincrement())
-  data                DateTime
-  status              String               @default("pendente")
-  usuarioId           Int
-  usuario             Usuario              @relation(fields: [usuarioId], references: [id])
-  servicos            AgendamentoServico[]
-  pagamento           Pagamento?
-  avaliacao           Avaliacao?
-}
-
-model AgendamentoServico {
-  id             Int         @id @default(autoincrement())
-  agendamentoId  Int
-  servicoId      Int
-  agendamento    Agendamento @relation(fields: [agendamentoId], references: [id])
-  servico        Servico     @relation(fields: [servicoId], references: [id])
-}
-
-model Pagamento {
-  id             Int         @id @default(autoincrement())
-  valor          Float
-  metodo         String
-  status         String      @default("pendente")
-  agendamentoId  Int         @unique
-  agendamento    Agendamento @relation(fields: [agendamentoId], references: [id])
+  id           Int          @id @default(autoincrement())
+  data         String
+  hora         String
+  veiculo      String       @default("Carro")
+  notas        String?
+  status       String       @default("pendente")
+  nomeCliente  String?
+  emailCliente String?
+  usuarioId    Int?
+  lojaId       Int
+  servicoId    Int
+  usuario      Usuario?     @relation(fields: [usuarioId], references: [id])
+  loja         Loja         @relation(fields: [lojaId], references: [id])
+  servico      ServicoLoja  @relation(fields: [servicoId], references: [id])
+  avaliacao    Avaliacao?
+  createdAt    DateTime     @default(now())
 }
 
 model Avaliacao {
-  id             Int         @id @default(autoincrement())
-  nota           Int
-  comentario     String?
-  agendamentoId  Int         @unique
-  agendamento    Agendamento @relation(fields: [agendamentoId], references: [id])
+  id            Int          @id @default(autoincrement())
+  nota          Int
+  comentario    String?
+  fotoUrl       String?
+  nomeCliente   String?
+  usuarioId     Int?
+  lojaId        Int
+  agendamentoId Int?         @unique
+  usuario       Usuario?     @relation(fields: [usuarioId], references: [id])
+  loja          Loja         @relation(fields: [lojaId], references: [id])
+  agendamento   Agendamento? @relation(fields: [agendamentoId], references: [id])
+  createdAt     DateTime     @default(now())
 }

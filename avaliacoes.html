@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Avaliacoes - AutoShine</title>
+  <title>Avaliações - AutoShine</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -13,24 +13,22 @@
   <div class="bg-decor"></div>
   <header class="topbar container">
     <a class="brand" href="index.html">
-      <span class="brand-dot"></span>
       <span>AutoShine</span>
     </a>
     <nav class="main-nav">
-      <a href="index.html">Inicio</a>
+      <a href="index.html">Início</a>
       <a href="mapa.html">Mapa</a>
-      <a href="perfil.html">Lava Jato</a>
-      <a href="dashboard.html">Dashboard</a>
+      <a href="meus-agendamentos.html">Agendamentos</a>
       <a href="cadastro.html?mode=login">Acessar</a>
     </nav>
   </header>
 
   <main class="container reveal-root">
     <section class="reviews-summary reveal-item">
-      <h1 id="reviews-shop-title">Avaliacoes do estabelecimento</h1>
+      <h1 id="reviews-shop-title">Avaliações do estabelecimento</h1>
       <p class="score"><span class="stars" id="reviews-average-stars">&#9733; 0,0</span></p>
-      <p id="reviews-total">Baseado em 0 avaliacoes</p>
-      <button id="toggle-review-form" class="btn btn-primary" type="button">Deixar avaliacao</button>
+      <p id="reviews-total">Baseado em 0 avaliações</p>
+      <button id="toggle-review-form" class="btn btn-primary" type="button">Deixar avaliação</button>
 
       <form id="review-form" class="review-form hidden" novalidate>
         <div class="field">
@@ -51,16 +49,22 @@
         </div>
 
         <div class="field">
-          <label for="review-comment">Comentario</label>
-          <textarea id="review-comment" name="comment" rows="4" placeholder="Conte como foi seu atendimento e qualidade do servico." required></textarea>
+          <label for="review-comment">Comentário</label>
+          <textarea id="review-comment" name="comment" rows="4" placeholder="Conte como foi o atendimento e a qualidade do serviço." required></textarea>
         </div>
 
-        <div class="field">
-          <label for="review-photo">URL da foto (opcional)</label>
-          <input id="review-photo" name="photoUrl" type="url" placeholder="https://..." />
+        <div class="field-grid">
+          <div class="field">
+            <label for="review-photo-file">Foto da experiência (opcional)</label>
+            <input id="review-photo-file" name="photoFile" type="file" accept="image/png,image/jpeg,image/webp" />
+          </div>
+          <div class="field">
+            <label for="review-photo">URL da foto (opcional)</label>
+            <input id="review-photo" name="photoUrl" type="url" placeholder="https://..." />
+          </div>
         </div>
 
-        <button class="btn btn-secondary" type="submit">Publicar avaliacao</button>
+        <button class="btn btn-secondary" type="submit">Publicar avaliação</button>
       </form>
     </section>
 

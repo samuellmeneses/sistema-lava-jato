@@ -3,42 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perfil do Lava Jato - AutoShine</title>
+  <title>Meus Agendamentos - AutoShine</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-<body data-page="perfil">
-  <header class="topbar">
+<body data-page="meus-agendamentos">
+  <header class="topbar container">
     <a class="brand" href="index.html">
       <span>AutoShine</span>
     </a>
     <nav class="main-nav">
       <a href="index.html">Início</a>
       <a href="mapa.html">Mapa</a>
-      <a href="meus-agendamentos.html">Agendamentos</a>
+      <a href="meus-agendamentos.html" class="active">Agendamentos</a>
       <a href="cadastro.html?mode=login">Acessar</a>
     </nav>
   </header>
 
   <main class="container reveal-root">
-    <section class="profile-hero reveal-item">
-      <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1400&q=80" alt="Capa do estabelecimento" />
-      <div class="profile-info">
-        <h1>Selecione um lava jato</h1>
-        <p>Escolha um estabelecimento pela home ou pelo mapa para ver serviços, preços e avaliações reais.</p>
-        <a class="btn btn-ghost" href="index.html">Ver lava jatos</a>
+    <section class="section-head reveal-item">
+      <div>
+        <p class="eyebrow">Sua conta</p>
+        <h1>Meus agendamentos</h1>
       </div>
+      <a class="btn btn-secondary" href="index.html">Agendar novo serviço</a>
     </section>
 
-    <section class="reveal-item">
-      <div class="section-head">
-        <h2>Serviços e preços</h2>
-        <a href="index.html" class="link">Escolher lava jato</a>
-      </div>
-
-      <div class="services-grid"></div>
+    <section class="user-bookings-shell reveal-item">
+      <p id="user-bookings-empty" class="empty-copy hidden">Você ainda não possui agendamentos.</p>
+      <div id="user-bookings-list" class="user-bookings-list"></div>
     </section>
   </main>
 

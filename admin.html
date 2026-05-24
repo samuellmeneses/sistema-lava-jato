@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel Admin - AutoShine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="admin">
+  <div class="bg-decor"></div>
+
+  <!-- AUTH SHELL -->
+  <div id="admin-auth-shell" class="admin-auth-wrap">
+    <div class="admin-login-card panel">
+      <div class="admin-login-header">
+        <h1>AutoShine <span class="admin-badge">Admin</span></h1>
+        <p class="empty-copy">Acesso restrito a administradores do sistema.</p>
+      </div>
+      <form id="admin-login-form" class="booking-form" novalidate>
+        <div class="field">
+          <label for="admin-login-input">Login</label>
+          <input id="admin-login-input" name="login" type="text" required placeholder="Login de administrador" autocomplete="username" />
+        </div>
+        <div class="field">
+          <label for="admin-senha-input">Senha</label>
+          <input id="admin-senha-input" name="senha" type="password" required placeholder="Senha" autocomplete="current-password" />
+        </div>
+        <p id="admin-login-error" class="field-error hidden"></p>
+        <button class="btn btn-primary btn-block" type="submit">Entrar no painel admin</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MANAGEMENT SHELL -->
+  <div id="admin-management-shell" class="hidden">
+    <header class="admin-topbar">
+      <div class="admin-topbar-brand">
+        <span class="admin-topbar-title">AutoShine <span class="admin-badge">Admin</span></span>
+      </div>
+      <div class="admin-topbar-actions">
+        <span id="admin-session-label" class="empty-copy"></span>
+        <button id="admin-logout-btn" class="btn btn-ghost" type="button">Sair</button>
+      </div>
+    </header>
+
+    <main class="container admin-main">
+      <section class="admin-stats-grid" aria-label="Resumo do sistema">
+        <article class="admin-stat-card">
+          <span>Lojas</span>
+          <strong id="admin-stat-shops">0</strong>
+        </article>
+        <article class="admin-stat-card">
+          <span>Bloqueadas</span>
+          <strong id="admin-stat-blocked">0</strong>
+        </article>
+        <article class="admin-stat-card">
+          <span>Parceiros</span>
+          <strong id="admin-stat-owners">0</strong>
+        </article>
+        <article class="admin-stat-card">
+          <span>Clientes</span>
+          <strong id="admin-stat-users">0</strong>
+        </article>
+        <article class="admin-stat-card">
+          <span>Agendamentos</span>
+          <strong id="admin-stat-bookings">0</strong>
+        </article>
+        <article class="admin-stat-card">
+          <span>Pendentes</span>
+          <strong id="admin-stat-pending">0</strong>
+        </article>
+        <article class="admin-stat-card">
+          <span>Avaliações</span>
+          <strong id="admin-stat-reviews">0</strong>
+        </article>
+      </section>
+
+      <section id="admin-edit-panel" class="panel admin-form hidden" aria-label="Editar loja selecionada">
+        <div class="section-head section-head-compact">
+          <div>
+            <h2 id="admin-form-title">Editar loja</h2>
+            <p class="empty-copy">Altere os dados da loja selecionada, do parceiro e dos serviços cadastrados.</p>
+          </div>
+        </div>
+
+        <form id="admin-shop-form" novalidate>
+          <input id="admin-shop-id" type="hidden" />
+
+          <div class="admin-form-section">
+            <h3>Dados do parceiro</h3>
+            <div class="field-grid">
+              <div class="field">
+                <label for="admin-owner-name">Nome do parceiro</label>
+                <input id="admin-owner-name" type="text" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label for="admin-owner-login">Login</label>
+                <input id="admin-owner-login" type="text" autocomplete="username" required />
+              </div>
+            </div>
+            <div class="field-grid">
+              <div class="field">
+                <label for="admin-owner-cnpj">CNPJ</label>
+                <input id="admin-owner-cnpj" type="text" inputmode="numeric" placeholder="Somente números" />
+              </div>
+              <div class="field">
+                <label for="admin-owner-password">Nova senha do parceiro</label>
+                <input id="admin-owner-password" type="password" autocomplete="new-password" placeholder="Deixe em branco para manter" />
+              </div>
+            </div>
+          </div>
+
+          <div class="admin-form-section">
+            <h3>Dados da loja</h3>
+            <div class="field">
+              <label for="admin-shop-name">Nome do lava jato</label>
+              <input id="admin-shop-name" type="text" required />
+            </div>
+            <div class="field">
+              <label for="admin-shop-summary">Descrição</label>
+              <textarea id="admin-shop-summary" rows="3" required></textarea>
+            </div>
+            <div class="field">
+              <label for="admin-shop-address">Endereço</label>
+              <input id="admin-shop-address" type="text" required />
+            </div>
+            <div class="field-grid">
+              <div class="field">
+                <label for="admin-shop-latitude">Latitude</label>
+                <input id="admin-shop-latitude" type="number" step="any" required />
+              </div>
+              <div class="field">
+                <label for="admin-shop-longitude">Longitude</label>
+                <input id="admin-shop-longitude" type="number" step="any" required />
+              </div>
+            </div>
+            <div class="field-grid">
+              <div class="field">
+                <label for="admin-shop-category">Categoria</label>
+                <input id="admin-shop-category" type="text" placeholder="Ex: lavagem completa" />
+              </div>
+              <div class="field">
+                <label for="admin-shop-price">Preço médio</label>
+                <input id="admin-shop-price" type="number" min="0" step="0.01" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="admin-shop-photo">Foto principal (URL ou arquivo local)</label>
+              <input id="admin-shop-photo" type="text" required placeholder="https://... ou assets/img/foto.png" />
+            </div>
+            <div class="field">
+              <label for="admin-shop-cover">Capa (URL ou arquivo local)</label>
+              <input id="admin-shop-cover" type="text" placeholder="https://... ou assets/img/capa.png" />
+            </div>
+            <label class="admin-checkbox">
+              <input id="admin-shop-blocked" type="checkbox" />
+              <span>Loja bloqueada</span>
+            </label>
+          </div>
+
+          <div class="admin-form-section">
+            <div class="admin-section-row">
+              <h3>Serviços</h3>
+              <button id="admin-add-service" class="btn btn-ghost admin-action-btn" type="button">Adicionar serviço</button>
+            </div>
+            <div id="admin-services-list" class="admin-service-list"></div>
+          </div>
+
+          <p id="admin-form-feedback" class="admin-feedback" role="status"></p>
+          <div class="admin-form-actions">
+            <button id="admin-submit-btn" class="btn btn-primary" type="submit">Salvar alterações</button>
+            <button id="admin-cancel-edit" class="btn btn-ghost" type="button">Cancelar edição</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="admin-list-panel">
+        <div class="section-head">
+          <div>
+            <h2>Lava jatos cadastrados</h2>
+            <p id="admin-shops-count" class="empty-copy"></p>
+          </div>
+          <button id="admin-refresh-btn" class="btn btn-ghost" type="button">Atualizar</button>
+        </div>
+
+        <div class="admin-table-wrap panel">
+          <table class="admin-table" id="admin-shops-table">
+            <thead>
+              <tr>
+                <th>Lava jato</th>
+                <th>Dono</th>
+                <th>Serviços</th>
+                <th>Avaliação</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="admin-shops-tbody"></tbody>
+          </table>
+          <p id="admin-empty" class="empty-copy hidden">Nenhum lava jato cadastrado ainda.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

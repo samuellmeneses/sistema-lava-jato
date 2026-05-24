@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acesso do Parceiro - AutoShine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-page="cadastro-dono">
+  <div class="bg-decor"></div>
+  <header class="topbar container">
+    <a class="brand" href="index.html">
+      <span>AutoShine</span>
+    </a>
+    <p class="partner-header-tag">Painel do parceiro</p>
+  </header>
+
+  <main class="container reveal-root partner-page">
+    <section id="dono-auth-shell" class="auth-shell reveal-item">
+      <div>
+        <p class="eyebrow">Área exclusiva para parceiros</p>
+        <h1 id="dono-auth-title">Entrar no painel do dono</h1>
+        <p id="dono-auth-subtitle" class="hero-text">Gerencie seu lava jato, serviços e agendamentos em um só lugar.</p>
+      </div>
+
+      <div class="auth-switch" role="tablist" aria-label="Alternar entre login e cadastro">
+        <button id="dono-switch-login" class="chip active" type="button" role="tab" aria-selected="true">Entrar</button>
+        <button id="dono-switch-register" class="chip" type="button" role="tab" aria-selected="false">Criar conta</button>
+      </div>
+
+      <!-- Painel de login -->
+      <div id="dono-login-panel" class="auth-panel">
+        <button id="dono-google-btn" class="btn btn-google" type="button"><svg class="google-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><text x="-9999" y="-9999">Google</text><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Entrar com Google</button>
+        <p class="auth-separator"><span>ou entre com login e senha</span></p>
+
+        <form id="dono-login-form" class="booking-form" novalidate>
+          <div class="field">
+            <label for="dono-login-input">Login</label>
+            <input id="dono-login-input" name="login" type="text" placeholder="Seu login de parceiro" required />
+          </div>
+          <div class="field">
+            <label for="dono-password-input">Senha</label>
+            <input id="dono-password-input" name="password" type="password" placeholder="Sua senha" required />
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Entrar no painel</button>
+        </form>
+      </div>
+
+      <!-- Painel de cadastro -->
+      <div id="dono-register-panel" class="auth-panel hidden">
+        <button id="dono-google-register-btn" class="btn btn-google" type="button"><svg class="google-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><text x="-9999" y="-9999">Google</text><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg> Cadastrar com Google</button>
+        <p class="auth-separator"><span>ou preencha seus dados</span></p>
+
+        <form id="owner-register-form" class="booking-form" novalidate>
+          <div class="field">
+            <label for="owner-register-name">Nome do responsável</label>
+            <input id="owner-register-name" name="name" type="text" required placeholder="Ex: Carlos Silva" />
+          </div>
+          <div class="field">
+            <label for="owner-register-login">Login da plataforma</label>
+            <input id="owner-register-login" name="login" type="text" required placeholder="Ex: carlos.lavajato" />
+          </div>
+          <div class="field">
+            <label for="owner-register-cnpj">CNPJ da empresa</label>
+            <input id="owner-register-cnpj" name="cnpj" type="text" required placeholder="Ex: 12.345.678/0001-90" />
+            <p class="empty-copy" id="cnpj-validation-msg" style="margin-top: 4px; color: #666;"></p>
+          </div>
+          <div class="field-grid">
+            <div class="field">
+              <label for="owner-register-password">Senha</label>
+              <input id="owner-register-password" name="password" type="password" minlength="6" required placeholder="Mínimo de 6 caracteres" />
+            </div>
+            <div class="field">
+              <label for="owner-register-password-confirm">Confirmar senha</label>
+              <input id="owner-register-password-confirm" name="passwordConfirm" type="password" minlength="6" required placeholder="Repita a senha" />
+            </div>
+          </div>
+          <label class="auth-checkbox">
+            <input id="owner-register-terms" name="terms" type="checkbox" required />
+            Concordo com os <a href="termos.html" target="_blank" rel="noopener">termos de uso</a> e a <a href="privacidade.html" target="_blank" rel="noopener">política de privacidade</a>.
+          </label>
+          <button class="btn btn-primary btn-block" type="submit">Criar conta de parceiro</button>
+        </form>
+      </div>
+
+    </section>
+
+    <section id="partner-management-shell" class="hidden partner-management-shell">
+      <div class="panel partner-session-bar reveal-item">
+        <p id="owner-session-label" class="empty-copy"></p>
+        <button id="owner-logout-btn" class="btn btn-ghost" type="button">Sair da conta</button>
+      </div>
+
+      <nav class="panel partner-tabs reveal-item" aria-label="Secoes do painel">
+        <button class="partner-tab active" data-partner-tab="cadastro" type="button">Cadastrar / Editar</button>
+        <button class="partner-tab" data-partner-tab="estabelecimento" type="button">Meu Lava Jato</button>
+        <button class="partner-tab" data-partner-tab="agendamentos" type="button">Agendamentos</button>
+      </nav>
+
+      <section class="partner-tab-panel" data-partner-panel="cadastro">
+        <div class="panel">
+          <div class="section-head">
+            <h2>Cadastrar seu lava jato</h2>
+          </div>
+
+          <form id="partner-form" class="booking-form">
+            <div class="partner-form-section">
+              <h3 class="partner-form-section-title">Informacoes do estabelecimento</h3>
+              <div class="field">
+                <label for="partner-shop-name">Nome do lava jato</label>
+                <input id="partner-shop-name" name="shopName" type="text" required placeholder="Ex: Shine Expert Centro" />
+              </div>
+              <div class="field">
+                <label for="partner-summary">Descricao curta</label>
+                <textarea id="partner-summary" name="summary" rows="2" required placeholder="Fale sobre o diferencial do seu lava jato."></textarea>
+              </div>
+              <div class="field">
+                <label for="partner-address">Endereco</label>
+                <input id="partner-address" name="address" type="text" required placeholder="Rua, numero e bairro" />
+              </div>
+              <div class="field">
+                <label for="partner-category">Categoria principal</label>
+                <select id="partner-category" name="category">
+                  <option value="">Selecione a categoria</option>
+                  <option value="lavagem simples">Lavagem Simples</option>
+                  <option value="lavagem completa">Lavagem Completa</option>
+                  <option value="polimento">Polimento</option>
+                  <option value="higienizacao interna">Higienizacao interna</option>
+                  <option value="detalhamento automotivo">Detalhamento Automotivo</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="partner-form-section">
+              <h3 class="partner-form-section-title">Localizacao no mapa</h3>
+              <p class="empty-copy partner-section-hint">Digite o endereco e use a busca para preencher as coordenadas automaticamente.</p>
+              <div class="partner-form-actions">
+                <button id="partner-geocode-address" class="btn btn-secondary" type="button">Buscar endereco no mapa</button>
+                <button id="partner-use-current-location" class="btn btn-ghost" type="button">Usar minha localizacao atual</button>
+              </div>
+              <p id="partner-geocode-feedback" class="empty-copy validation-msg"></p>
+              <div class="field-grid">
+                <div class="field">
+                  <label for="partner-latitude">Latitude</label>
+                  <input id="partner-latitude" name="latitude" type="number" step="any" min="-90" max="90" required placeholder="Ex: -16.6869" />
+                </div>
+                <div class="field">
+                  <label for="partner-longitude">Longitude</label>
+                  <input id="partner-longitude" name="longitude" type="number" step="any" min="-180" max="180" required placeholder="Ex: -49.2648" />
+                </div>
+              </div>
+            </div>
+
+            <div class="partner-form-section">
+              <h3 class="partner-form-section-title">Agenda de atendimento</h3>
+              <p class="empty-copy partner-section-hint">Escolha os dias e informe os horarios que clientes poderao agendar.</p>
+              <div class="partner-weekdays" id="partner-weekdays" aria-label="Dias de funcionamento">
+                <label><input type="checkbox" name="agendaDias" value="1" checked /> Seg</label>
+                <label><input type="checkbox" name="agendaDias" value="2" checked /> Ter</label>
+                <label><input type="checkbox" name="agendaDias" value="3" checked /> Qua</label>
+                <label><input type="checkbox" name="agendaDias" value="4" checked /> Qui</label>
+                <label><input type="checkbox" name="agendaDias" value="5" checked /> Sex</label>
+                <label><input type="checkbox" name="agendaDias" value="6" checked /> Sab</label>
+                <label><input type="checkbox" name="agendaDias" value="0" /> Dom</label>
+              </div>
+              <div class="field">
+                <label for="partner-schedule-times">Horarios disponiveis</label>
+                <textarea id="partner-schedule-times" name="agendaHorarios" rows="3" required placeholder="08:00, 09:30, 11:00, 13:30, 15:00, 16:30">08:00, 09:30, 11:00, 13:30, 15:00, 16:30</textarea>
+                <p id="partner-schedule-feedback" class="empty-copy validation-msg"></p>
+              </div>
+            </div>
+
+            <div class="partner-form-section">
+              <h3 class="partner-form-section-title">Fotos do estabelecimento</h3>
+              <div class="field-grid">
+                <div class="field">
+                  <label for="partner-photo-file">Enviar foto principal</label>
+                  <input id="partner-photo-file" name="photoFile" type="file" accept="image/png,image/jpeg,image/webp" />
+                  <p id="partner-photo-feedback" class="empty-copy validation-msg"></p>
+                  <label for="partner-photo">URL ou caminho salvo</label>
+                  <input id="partner-photo" name="photoUrl" type="text" required placeholder="https://... ou assets/uploads/foto.png" />
+                </div>
+                <div class="field">
+                  <label for="partner-cover-file">Enviar foto de capa</label>
+                  <input id="partner-cover-file" name="coverFile" type="file" accept="image/png,image/jpeg,image/webp" />
+                  <p id="partner-cover-feedback" class="empty-copy validation-msg"></p>
+                  <label for="partner-cover">URL ou caminho salvo (opcional)</label>
+                  <input id="partner-cover" name="coverUrl" type="text" placeholder="https://... ou assets/uploads/capa.png" />
+                </div>
+              </div>
+            </div>
+
+            <div class="partner-form-section">
+              <h3 class="partner-form-section-title">Servicos oferecidos</h3>
+              <p class="empty-copy partner-section-hint">Use os atalhos para adicionar servicos comuns rapidamente ou crie um servico personalizado.</p>
+              <div class="partner-quick-services">
+                <p class="partner-quick-label">Adicionar rapidamente:</p>
+                <div class="chip-list">
+                  <button type="button" class="chip" data-quick-service="Lavagem Simples|25|45 min|Lavagem externa rapida do veiculo">+ Lavagem simples</button>
+                  <button type="button" class="chip" data-quick-service="Lavagem Completa|55|1h30|Lavagem interna e externa completa">+ Lavagem Completa</button>
+                  <button type="button" class="chip" data-quick-service="Polimento|150|3h|Polimento e lustro na pintura">+ Polimento</button>
+                  <button type="button" class="chip" data-quick-service="Higienizacao Interna|80|2h|Limpeza completa do interior do veiculo">+ Higienizacao interna</button>
+                  <button type="button" class="chip" data-quick-service="Detalhamento Automotivo|300|5h|Detalhamento completo com produtos premium">+ Detalhamento</button>
+                  <button type="button" class="chip" data-quick-service="Cera Protetora|120|2h|Aplicacao de cera e protecao da pintura">+ Cera Protetora</button>
+                  <button type="button" class="chip" data-quick-service="Lavagem de Motor|60|1h|Limpeza do compartimento do motor">+ Lavagem de Motor</button>
+                </div>
+              </div>
+              <article class="partner-services-box">
+                <div id="partner-services-list" class="partner-services-list"></div>
+                <button id="add-partner-service" type="button" class="btn btn-secondary">Adicionar servico personalizado</button>
+              </article>
+            </div>
+
+            <div class="partner-form-actions">
+              <button id="partner-submit-btn" class="btn btn-primary" type="submit">Salvar lava jato</button>
+              <button id="partner-cancel-edit" class="btn btn-ghost hidden" type="button" data-go-tab="estabelecimento">Cancelar edicao</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="partner-tab-panel hidden" data-partner-panel="estabelecimento">
+        <div class="panel">
+          <div class="section-head">
+            <h2>Meu estabelecimento e servicos</h2>
+          </div>
+          <div id="partner-owned-list" class="partner-owned-list"></div>
+        </div>
+      </section>
+
+      <section class="partner-tab-panel hidden" data-partner-panel="agendamentos">
+        <div class="panel partner-bookings-shell">
+          <div class="section-head">
+            <h2>Agendamentos recebidos</h2>
+          </div>
+          <div id="partner-bookings-list" class="partner-bookings-list"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <template id="partner-service-template">
+    <article class="partner-service-item">
+      <div class="field-grid">
+        <div class="field">
+          <label>Nome do servico</label>
+          <input type="text" data-service-field="name" required placeholder="Ex: Lavagem completa" />
+        </div>
+        <div class="field">
+          <label>Preco (R$)</label>
+          <input type="number" data-service-field="price" min="0" step="0.01" required placeholder="Ex: 89" />
+        </div>
+      </div>
+      <div class="field-grid">
+        <div class="field">
+          <label>Duracao estimada</label>
+          <input type="text" data-service-field="duration" required placeholder="Ex: 1h30" />
+        </div>
+        <div class="field">
+          <label>Descricao</label>
+          <input type="text" data-service-field="description" required placeholder="Ex: lavagem completa com aspiracao e limpeza de vidros" />
+        </div>
+      </div>
+      <button type="button" class="btn btn-ghost remove-partner-service">Remover servico</button>
+    </article>
+  </template>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -13,24 +13,22 @@
   <div class="bg-decor"></div>
   <header class="topbar container">
     <a class="brand" href="index.html">
-      <span class="brand-dot"></span>
       <span>AutoShine</span>
     </a>
     <nav class="main-nav">
-      <a href="index.html">Inicio</a>
+      <a href="index.html">Início</a>
       <a href="mapa.html">Mapa</a>
-      <a href="perfil.html">Lava Jato</a>
-      <a href="dashboard.html">Dashboard</a>
+      <a href="meus-agendamentos.html">Agendamentos</a>
       <a href="cadastro.html?mode=login">Acessar</a>
     </nav>
   </header>
 
   <main class="container reveal-root">
     <section class="booking-shell reveal-item">
-      <h1>Agendar servico</h1>
+      <h1>Agendar serviço</h1>
       <form id="booking-form" class="booking-form">
         <div class="field">
-          <label for="servico">Servico selecionado</label>
+          <label for="servico">Serviço selecionado</label>
           <input id="servico" name="servico" type="text" readonly />
         </div>
 
@@ -40,7 +38,7 @@
             <input id="data" name="data" type="date" required />
           </div>
           <div class="field">
-            <label for="horario">Escolha o horario</label>
+            <label for="horario">Escolha o horário</label>
             <select id="horario" name="horario" required>
               <option value="">Selecione</option>
               <option>08:00</option>
@@ -50,11 +48,12 @@
               <option>15:00</option>
               <option>16:30</option>
             </select>
+            <p id="booking-availability-msg" class="empty-copy validation-msg"></p>
           </div>
         </div>
 
         <div class="field">
-          <label>Tipo de veiculo</label>
+          <label>Tipo de veículo</label>
           <div class="vehicle-options">
             <label><input type="radio" name="veiculo" value="carro" required /> Carro</label>
             <label><input type="radio" name="veiculo" value="moto" /> Moto</label>
@@ -63,8 +62,8 @@
         </div>
 
         <div class="field">
-          <label for="obs">Observacoes</label>
-          <textarea id="obs" name="observacoes" rows="4" placeholder="Ex.: Veiculo com banco de couro, foco no acabamento interno."></textarea>
+          <label for="obs">Observações</label>
+          <textarea id="obs" name="observacoes" rows="4" placeholder="Ex.: veículo com banco de couro, foco no acabamento interno."></textarea>
         </div>
 
         <button class="btn btn-primary btn-block" type="submit">Confirmar agendamento</button>

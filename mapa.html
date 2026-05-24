@@ -22,15 +22,13 @@
   <header class="topbar container">
 
     <a class="brand" href="index.html">
-      <span class="brand-dot"></span>
       <span>AutoShine</span>
     </a>
 
     <nav class="main-nav">
-      <a href="index.html">Inicio</a>
+      <a href="index.html">Início</a>
       <a class="active" href="mapa.html">Mapa</a>
-      <a href="perfil.html">Lava Jato</a>
-      <a href="dashboard.html">Dashboard</a>
+      <a href="meus-agendamentos.html">Agendamentos</a>
       <a href="cadastro.html?mode=login">Acessar</a>
     </nav>
 
@@ -47,21 +45,21 @@
       <button class="chip active" data-filter="todos">Todos</button>
       <button class="chip" data-filter="lavagem">Lavagem</button>
       <button class="chip" data-filter="polimento">Polimento</button>
-      <button class="chip" data-filter="higienizacao">Higienizacao</button>
+      <button class="chip" data-filter="higienizacao">Higienização</button>
       <button class="chip" data-filter="detalhamento">Detalhamento</button>
-      <button class="btn btn-ghost" id="map-locate-btn" type="button">Usar minha localizacao</button>
+      <button class="btn btn-ghost" id="map-locate-btn" type="button">Usar minha localização</button>
 
     </section>
 
     <section class="map-shell reveal-item">
 
-      <div id="map" class="map-canvas real-map" aria-label="Mapa com lava jatos proximos"></div>
+      <div id="map" class="map-canvas real-map" aria-label="Mapa com lava jatos próximos"></div>
 
       <article class="map-bottom-card" id="map-selected-card">
         <h3 id="shop-name">Selecione um lava jato</h3>
         <p id="shop-info">Clique em um marcador no mapa</p>
         <div class="map-action-row">
-          <a class="btn btn-primary" href="perfil.html">Ver servicos</a>
+          <a id="map-profile-btn" class="btn btn-primary" href="perfil.html">Ver serviços</a>
           <button id="map-route-btn" class="btn btn-secondary" type="button">Mostrar caminho</button>
           <a id="external-nav-btn" class="btn btn-ghost" href="https://www.google.com/maps" target="_blank" rel="noopener">Ir com GPS</a>
         </div>

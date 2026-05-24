@@ -13,14 +13,12 @@
   <div class="bg-decor"></div>
   <header class="topbar container">
     <a class="brand" href="index.html">
-      <span class="brand-dot"></span>
       <span>AutoShine</span>
     </a>
     <nav class="main-nav">
-      <a class="active" href="index.html">Inicio</a>
+      <a class="active" href="index.html">Início</a>
       <a href="mapa.html">Mapa</a>
-      <a href="perfil.html">Lava Jato</a>
-      <a href="dashboard.html">Dashboard</a>
+      <a href="meus-agendamentos.html">Agendamentos</a>
       <a href="cadastro.html?mode=login">Acessar</a>
     </nav>
   </header>
@@ -28,68 +26,39 @@
   <main class="container page-home reveal-root">
     <section class="hero reveal-item">
       <div>
-        <p class="eyebrow">Marketplace de servicos automotivos</p>
-        <h1>Encontre o melhor lava jato para seu veiculo em poucos cliques.</h1>
-        <p class="hero-text">Descubra servicos, compare avaliacoes e agende online com experiencia rapida, visual e profissional.</p>
+        <p class="eyebrow">Marketplace de serviços automotivos</p>
+        <h1>Encontre o melhor lava jato para seu veículo em poucos cliques.</h1>
+        <p class="hero-text">Descubra serviços, compare avaliações e agende online com uma experiência rápida, visual e profissional.</p>
       </div>
     </section>
 
     <section class="search-panel reveal-item">
       <div class="search-wrap">
-        <input type="text" placeholder="Encontrar lava jato perto de voce" aria-label="Busca de lava jato" />
+        <input type="text" placeholder="Encontrar lava jato perto de você" aria-label="Busca de lava jato" />
         <button class="btn btn-primary">Buscar</button>
       </div>
-      <button id="use-location-btn" class="btn btn-ghost">Usar minha localizacao</button>
+      <button id="use-location-btn" class="btn btn-ghost">Usar minha localização</button>
     </section>
 
     <section class="categories reveal-item">
-      <h2>Categorias de servico</h2>
+      <h2>Categorias de serviço</h2>
       <div class="chip-list" id="category-list">
         <button class="chip active" data-category="todos">Todos</button>
         <button class="chip" data-category="lavagem simples">Lavagem simples</button>
         <button class="chip" data-category="lavagem completa">Lavagem completa</button>
         <button class="chip" data-category="polimento">Polimento</button>
-        <button class="chip" data-category="higienizacao interna">Higienizacao interna</button>
+        <button class="chip" data-category="higienizacao interna">Higienização interna</button>
         <button class="chip" data-category="detalhamento automotivo">Detalhamento automotivo</button>
       </div>
     </section>
 
     <section class="listing reveal-item">
       <div class="section-head">
-        <h2>Lava jatos proximos</h2>
+        <h2>Lava jatos próximos</h2>
         <a href="mapa.html" class="link">Ver no mapa</a>
       </div>
 
       <div id="shop-grid" class="shop-grid">
-        <article class="shop-card" data-services="lavagem simples lavagem completa polimento">
-          <img src="https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=800&q=80" alt="Fachada do lava jato" />
-          <div class="shop-content">
-            <h3>BlueWash Premium</h3>
-            <p class="meta"><span class="stars">&#9733; 4.8</span> 1,2 km</p>
-            <p class="price">Preco medio: R$ 85</p>
-            <a class="btn btn-secondary" href="perfil.html">Ver servicos</a>
-          </div>
-        </article>
-
-        <article class="shop-card" data-services="lavagem simples higienizacao interna detalhamento automotivo">
-          <img src="https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=800&q=80" alt="Equipe de estetica automotiva" />
-          <div class="shop-content">
-            <h3>BlackCar Studio</h3>
-            <p class="meta"><span class="stars">&#9733; 4.7</span> 2,0 km</p>
-            <p class="price">Preco medio: R$ 110</p>
-            <a class="btn btn-secondary" href="perfil.html">Ver servicos</a>
-          </div>
-        </article>
-
-        <article class="shop-card" data-services="lavagem completa polimento detalhamento automotivo">
-          <img src="https://images.unsplash.com/photo-1520340356584-8f9f49d74e6f?auto=format&fit=crop&w=800&q=80" alt="Lavagem de veiculo em box" />
-          <div class="shop-content">
-            <h3>Prime Auto Care</h3>
-            <p class="meta"><span class="stars">&#9733; 4.9</span> 3,4 km</p>
-            <p class="price">Preco medio: R$ 140</p>
-            <a class="btn btn-secondary" href="perfil.html">Ver servicos</a>
-          </div>
-        </article>
       </div>
     </section>
   </main>
