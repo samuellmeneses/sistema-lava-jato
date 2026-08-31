@@ -121,7 +121,7 @@ Moderação de avaliações e fotos. Avaliações públicas sem moderação pode
 Painel admin mais completo: usuários, donos, agendamentos, avaliações, denúncias, logs e auditoria.
 
 Usabilidade
-Trocar muitos alert()/confirm() por toasts, mensagens inline e modais melhores. O JS usa bastante isso, por exemplo em assets/js/app.js (line 2236) e vários outros fluxos.
+Trocar muitos alert()/confirm() por toasts, mensagens inline e modais melhores. O JS usa bastante isso, e vários outros fluxos.
 
 Melhorar estados de loading. Em login, cadastro, upload e agendamento, o usuário precisa perceber que algo está processando.
 
